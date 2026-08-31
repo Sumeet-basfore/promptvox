@@ -8,11 +8,7 @@ export interface RecordingIndicatorProps extends React.HTMLAttributes<HTMLDivEle
 export const RecordingIndicator = React.forwardRef<HTMLDivElement, RecordingIndicatorProps>(
   ({ active = false, className, ...props }, ref) => {
     return (
-      <div
-        ref={ref}
-        className={cn('inline-flex items-center gap-2', className)}
-        {...props}
-      >
+      <div ref={ref} className={cn('inline-flex items-center gap-2', className)} {...props}>
         <span
           className={cn(
             'inline-block h-3 w-3 rounded-full bg-[var(--state-recording)]',

@@ -2,20 +2,20 @@
 
 ## Stack
 
-| Layer               | Technology                          | Role                                                          |
-| -------------------- | ------------------------------------ | -------------------------------------------------------------- |
-| Monorepo             | pnpm workspaces                      | Shared core consumed by both platform apps                     |
-| Shared core          | TypeScript                           | Provider interfaces, classification, template engine, types    |
-| Shared UI            | React + Tailwind + shadcn/ui         | Component library used by both apps                            |
-| Browser extension    | WXT (Manifest V3) + React            | Popup UI, background service worker, content-script insertion  |
-| Desktop app           | Tauri 2 (Rust + React)               | Native window, global hotkey, local STT execution               |
-| Local STT (desktop)  | `whisper-rs` (whisper.cpp bindings)  | On-device transcription using local GGUF Whisper models         |
-| Local STT (extension)| Transformers.js (WASM/WebGPU Whisper)| On-device transcription inside the browser sandbox              |
-| Cloud STT            | OpenAI, Groq, Deepgram (pluggable)   | Off-device transcription via the user's own API key             |
-| Local LLM            | User's local `llama-server` endpoint | OpenAI-compatible local inference for classification + generation |
-| Cloud LLM            | OpenAI-compatible providers          | Off-device classification + generation via the user's own API key |
-| Extension storage    | `chrome.storage.local`               | Settings and history, extension-side                            |
-| Desktop storage      | SQLite (`tauri-plugin-sql`)          | Settings and history, desktop-side                               |
+| Layer                 | Technology                            | Role                                                              |
+| --------------------- | ------------------------------------- | ----------------------------------------------------------------- |
+| Monorepo              | pnpm workspaces                       | Shared core consumed by both platform apps                        |
+| Shared core           | TypeScript                            | Provider interfaces, classification, template engine, types       |
+| Shared UI             | React + Tailwind + shadcn/ui          | Component library used by both apps                               |
+| Browser extension     | WXT (Manifest V3) + React             | Popup UI, background service worker, content-script insertion     |
+| Desktop app           | Tauri 2 (Rust + React)                | Native window, global hotkey, local STT execution                 |
+| Local STT (desktop)   | `whisper-rs` (whisper.cpp bindings)   | On-device transcription using local GGUF Whisper models           |
+| Local STT (extension) | Transformers.js (WASM/WebGPU Whisper) | On-device transcription inside the browser sandbox                |
+| Cloud STT             | OpenAI, Groq, Deepgram (pluggable)    | Off-device transcription via the user's own API key               |
+| Local LLM             | User's local `llama-server` endpoint  | OpenAI-compatible local inference for classification + generation |
+| Cloud LLM             | OpenAI-compatible providers           | Off-device classification + generation via the user's own API key |
+| Extension storage     | `chrome.storage.local`                | Settings and history, extension-side                              |
+| Desktop storage       | SQLite (`tauri-plugin-sql`)           | Settings and history, desktop-side                                |
 
 ## System Boundaries
 

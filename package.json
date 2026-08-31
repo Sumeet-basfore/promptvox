@@ -9,14 +9,22 @@
     "format:write": "prettier --write ."
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^24.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.0.0",
     "prettier": "^3.5.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.68.0"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "spawn-sync", "@tauri-apps/cli", "esbuild@0.25.12", "esbuild@0.21.5"]
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "spawn-sync",
+      "@tauri-apps/cli",
+      "esbuild@0.25.12",
+      "esbuild@0.21.5"
+    ]
   }
 }
