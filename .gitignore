@@ -19,3 +19,4 @@ target/
 .DS_Store
 .remember/
 .hidden_folder/
+.lavish/
