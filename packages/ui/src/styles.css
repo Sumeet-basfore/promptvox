@@ -1,0 +1,64 @@
+:root {
+  --bg-base: #1e1e2e;
+  --bg-surface: #181825;
+  --bg-elevated: #11111b;
+  --bg-subtle: #313244;
+  --border-default: #45475a;
+  --border-subtle: #585b70;
+  --text-primary: #cdd6f4;
+  --text-secondary: #bac2de;
+  --text-muted: #a6adc8;
+  --text-faint: #6c7086;
+  --accent-primary: #cba6f7;
+  --accent-ai: #89b4fa;
+  --state-success: #a6e3a1;
+  --state-warning: #f9e2af;
+  --state-error: #f38ba8;
+  --state-recording: #eba0ac;
+  --font-ui: 'JetBrains Mono Nerd', monospace;
+  --font-mono: 'JetBrains Mono Nerd', monospace;
+
+  /* shadcn/ui mapping */
+  --background: var(--bg-base);
+  --foreground: var(--text-primary);
+  --card: var(--bg-surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--bg-elevated);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--accent-primary);
+  --primary-foreground: #11111b;
+  --secondary: var(--bg-subtle);
+  --secondary-foreground: var(--text-secondary);
+  --muted: var(--bg-subtle);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--bg-subtle);
+  --accent-foreground: var(--text-primary);
+  --destructive: var(--state-error);
+  --destructive-foreground: #11111b;
+  --border: var(--border-default);
+  --input: var(--border-default);
+  --ring: var(--accent-primary);
+  --radius: 0.5rem;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.2);
+  }
+}
+
+.animate-recording-pulse {
+  animation: pulse-slow 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

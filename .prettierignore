@@ -1,0 +1,4 @@
+dist
+node_modules
+.wxt
+src-tauri/target
