@@ -5,32 +5,33 @@ implementation state changes.
 
 ## Current Phase
 
-- Not started
+- Feature Spec 01 (Monorepo Scaffolding) - Complete
 
 ## Current Goal
 
-- Define the immediate implementation goal here.
+- Feature Spec 02: Design System setup in `@promptvox/ui` or Feature Spec 03: Core Types & Provider Interfaces.
 
 ## Completed
 
-- None yet.
+- Feature Spec 01: Scaffolded pnpm monorepo with `@promptvox/core`, `@promptvox/ui`, `apps/extension` (WXT Manifest V3), and `apps/desktop` (Tauri 2). Verified root `pnpm install`, TypeScript compilation, WXT extension build, and Tauri desktop frontend/backend checks.
 
 ## In Progress
 
-- None yet.
+- None.
 
 ## Next Up
 
-- Add the next planned feature unit here.
+- Feature Spec 02: Design System setup in `@promptvox/ui` with Catppuccin Mocha tokens, Tailwind CSS variables, typography, border radius scale, and shadcn/ui foundation.
+- Feature Spec 03: Core Types and Provider Interfaces (`STTProvider`, `LLMProvider`, `SettingsRepository`, `HistoryRepository`).
 
 ## Open Questions
 
-- Add unresolved product or implementation questions here.
+- None at present.
 
 ## Architecture Decisions
 
-- Add decisions that affect the system design or data model.
+- Shared monorepo structure with `@promptvox/core` (strict TS, no DOM/Tauri deps), `@promptvox/ui` (React + Tailwind + shadcn/ui), `apps/extension` (WXT + React), and `apps/desktop` (Tauri 2 + Rust + React).
 
 ## Session Notes
 
-- Add context needed to resume work in the next session.
+- Monorepo scaffold complete and committed to `fm/promptvox-scaffold` branch. All builds verified.
