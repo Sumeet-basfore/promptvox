@@ -14,11 +14,11 @@ export class ExtensionSettingsRepository implements SettingsRepository {
     if (typeof chrome === 'undefined' || !chrome.storage?.local) {
       return DEFAULT_SETTINGS;
     }
-    const result = await chrome.storage.local.get(SETTINGS_KEY);
-    if (!result[SETTINGS_KEY]) {
-      return DEFAULT_SETTINGS;
-    }
     try {
+      const result = await chrome.storage.local.get(SETTINGS_KEY);
+      if (!result[SETTINGS_KEY]) {
+        return DEFAULT_SETTINGS;
+      }
       return JSON.parse(result[SETTINGS_KEY]) as Settings;
     } catch {
       return DEFAULT_SETTINGS;
@@ -40,11 +40,11 @@ export class ExtensionHistoryRepository implements HistoryRepository {
     if (typeof chrome === 'undefined' || !chrome.storage?.local) {
       return [];
     }
-    const result = await chrome.storage.local.get(HISTORY_KEY);
-    if (!result[HISTORY_KEY]) {
-      return [];
-    }
     try {
+      const result = await chrome.storage.local.get(HISTORY_KEY);
+      if (!result[HISTORY_KEY]) {
+        return [];
+      }
       return JSON.parse(result[HISTORY_KEY]) as HistoryEntry[];
     } catch {
       return [];
