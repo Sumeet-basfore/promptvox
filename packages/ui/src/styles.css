@@ -17,10 +17,47 @@
   --state-recording: #eba0ac;
   --font-ui: 'JetBrains Mono Nerd', monospace;
   --font-mono: 'JetBrains Mono Nerd', monospace;
+
+  /* shadcn/ui mapping */
+  --background: var(--bg-base);
+  --foreground: var(--text-primary);
+  --card: var(--bg-surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--bg-elevated);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--accent-primary);
+  --primary-foreground: #11111b;
+  --secondary: var(--bg-subtle);
+  --secondary-foreground: var(--text-secondary);
+  --muted: var(--bg-subtle);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--bg-subtle);
+  --accent-foreground: var(--text-primary);
+  --destructive: var(--state-error);
+  --destructive-foreground: #11111b;
+  --border: var(--border-default);
+  --input: var(--border-default);
+  --ring: var(--accent-primary);
+  --radius: 0.5rem;
 }
 
 body {
   background-color: var(--bg-base);
   color: var(--text-primary);
   font-family: var(--font-ui);
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.2);
+  }
+}
+
+.animate-recording-pulse {
+  animation: pulse-slow 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
