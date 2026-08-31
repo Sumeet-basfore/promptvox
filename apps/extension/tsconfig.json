@@ -4,5 +4,5 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "jsx": "react-jsx"
   },
-  "include": ["entrypoints/**/*", "wxt.config.ts"]
+  "include": ["entrypoints/**/*", "src/**/*", "wxt.config.ts"]
 }
