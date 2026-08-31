@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+.output/
+.wxt/
+src-tauri/target/
+
+# Logs
+*.log
+
+# System & IDE
+.DS_Store
+.remember/
+.hidden_folder/

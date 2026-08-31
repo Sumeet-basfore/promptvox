@@ -1,0 +1,26 @@
+:root {
+  --bg-base: #1e1e2e;
+  --bg-surface: #181825;
+  --bg-elevated: #11111b;
+  --bg-subtle: #313244;
+  --border-default: #45475a;
+  --border-subtle: #585b70;
+  --text-primary: #cdd6f4;
+  --text-secondary: #bac2de;
+  --text-muted: #a6adc8;
+  --text-faint: #6c7086;
+  --accent-primary: #cba6f7;
+  --accent-ai: #89b4fa;
+  --state-success: #a6e3a1;
+  --state-warning: #f9e2af;
+  --state-error: #f38ba8;
+  --state-recording: #eba0ac;
+  --font-ui: 'JetBrains Mono Nerd', monospace;
+  --font-mono: 'JetBrains Mono Nerd', monospace;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+}
