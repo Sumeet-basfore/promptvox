@@ -5,11 +5,11 @@ implementation state changes.
 
 ## Current Phase
 
-- Feature Spec 04 (Settings & History Storage Repositories) - Complete
+- Feature Spec 05 (Cloud STT Provider) - Complete
 
 ## Current Goal
 
-- Implement Feature Spec 05 (Cloud STT Provider).
+- Implement Feature Spec 06 (Local STT Provider — Desktop).
 
 ## Completed
 
@@ -21,6 +21,11 @@ implementation state changes.
   - `apps/extension`: Implemented `ExtensionSettingsRepository`/`ExtensionHistoryRepository` against `chrome.storage.local`, JSON-serialized under deterministic keys `promptvox:settings` / `promptvox:history`, with missing/corrupt JSON handled via defaults + validation; API keys never logged; no direct `chrome.storage` from UI. Updated `apps/extension/tsconfig.json` to include `src/**/*`.
   - `apps/desktop`: Added `tauri-plugin-sql` + `rusqlite` (bundled) with local SQLite file `promptvox.db` in app data dir via Tauri path API; created `settings` (single row, JSON `data`) and `history` (id, created_at, transcript, prompt_json) tables; implemented both repos in Rust (`apps/desktop/src-tauri/src/storage.rs`) exposed via thin typed serializable Tauri commands (`get_settings`, `set_settings`, `list_history`, `add_history`, `remove_history`, `clear_history`) never blocking UI thread; frontend wrappers (`apps/desktop/src/storage/*`) satisfy same TS interfaces from `@promptvox/core`.
   - Verified `pnpm --filter @promptvox/core build`, `pnpm --filter @promptvox/ui build`, `pnpm --filter @promptvox/extension build` (wxt), `pnpm --filter @promptvox/desktop build` (tsc+vike), `cargo check` all pass; `pnpm lint` (eslint) clean with strict TS.
+- Feature Spec 05: Implemented cloud `STTProvider`s in `packages/core/providers/stt/cloud/` per `feature-specs/05-cloud-stt-provider.md`:
+  - Added typed errors `MissingCredentialsError` / `ProviderRequestError` (`providers/stt/errors.ts`) and shared audio helpers (`providers/stt/cloud/audio.ts`).
+  - Implemented `OpenAIWhisperProvider` (OpenAI `whisper-1`), `GroqWhisperProvider` (Groq `whisper-large-v3`, OpenAI-compatible shape), and `DeepgramProvider` (Deepgram `v1/listen`), each `kind: "cloud"`, taking the API key via constructor and throwing typed errors before/on failed requests.
+  - Added `resolveCloudSTTProvider(settings)` factory in `providers/stt/index.ts` and re-exported all STT types/providers from the package entry.
+  - Verified `pnpm --filter @promptvox/core build` and `pnpm lint` clean; smoke-tested missing-key throws (no network) and factory resolution via esbuild bundle.
 
 ## In Progress
 
@@ -28,7 +33,7 @@ implementation state changes.
 
 ## Next Up
 
-- Feature Spec 05: Cloud STT Provider (OpenAI/Groq/Deepgram) per `feature-specs/05-cloud-stt-provider.md`.
+- Feature Spec 06: Local STT Provider (Desktop, `whisper-rs`) per `feature-specs/06-local-stt-desktop.md`.
 
 ## Open Questions
 
@@ -43,3 +48,4 @@ implementation state changes.
 
 - Feature Specs 01, 02, and 03 implemented, built, and committed to `fm/promptvox-scaffold` branch. All builds verified.
 - Feature Spec 04 implemented on `fm/implement-spec-04-settings-storage-repos-32` — extension (`chrome.storage.local` JSON under `promptvox:settings`/`promptvox:history`) and desktop (SQLite `promptvox.db` via `tauri-plugin-sql`+`rusqlite`, Rust commands) both satisfy identical `SettingsRepository`/`HistoryRepository` interfaces from `@promptvox/core`; validation at storage boundary, API keys never logged; no direct storage from UI; `eslint` clean, all builds verified.
+- Feature Spec 05 implemented on `fm/impl-feature-stt-continuation` (repointed onto spec 04) — added cloud STT providers and typed errors in `packages/core/providers/stt/`; declared `@eslint/js` as a devDependency to fix the pre-existing eslint config resolution gap; `@promptvox/core` build and `eslint` clean.
