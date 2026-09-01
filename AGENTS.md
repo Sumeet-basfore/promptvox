@@ -31,6 +31,8 @@ For implementation details, read the relevant numbered specification in
 
 ## Workflow
 
+- All work is committed directly to the `main` branch. Do not create new
+  branches, and push only to `main`.
 - Implement one feature specification at a time.
 - Prefer small, verifiable increments.
 - Do not invent behavior missing from the specifications; record ambiguity in

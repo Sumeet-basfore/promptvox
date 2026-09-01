@@ -46,6 +46,7 @@ implementation state changes.
 
 ## Session Notes
 
-- Feature Specs 01, 02, and 03 implemented, built, and committed to `fm/promptvox-scaffold` branch. All builds verified.
-- Feature Spec 04 implemented on `fm/implement-spec-04-settings-storage-repos-32` — extension (`chrome.storage.local` JSON under `promptvox:settings`/`promptvox:history`) and desktop (SQLite `promptvox.db` via `tauri-plugin-sql`+`rusqlite`, Rust commands) both satisfy identical `SettingsRepository`/`HistoryRepository` interfaces from `@promptvox/core`; validation at storage boundary, API keys never logged; no direct storage from UI; `eslint` clean, all builds verified.
-- Feature Spec 05 implemented on `fm/impl-feature-stt-continuation` (repointed onto spec 04) — added cloud STT providers and typed errors in `packages/core/providers/stt/`; declared `@eslint/js` as a devDependency to fix the pre-existing eslint config resolution gap; `@promptvox/core` build and `eslint` clean.
+- Feature Specs 01, 02, and 03 implemented, built, and committed. All builds verified.
+- Feature Spec 04 implemented — extension (`chrome.storage.local` JSON under `promptvox:settings`/`promptvox:history`) and desktop (SQLite `promptvox.db` via `tauri-plugin-sql`+`rusqlite`, Rust commands) both satisfy identical `SettingsRepository`/`HistoryRepository` interfaces from `@promptvox/core`; validation at storage boundary, API keys never logged; no direct storage from UI; `eslint` clean, all builds verified.
+- Feature Spec 05 implemented — added cloud STT providers and typed errors in `packages/core/providers/stt/`; declared `@eslint/js` as a devDependency to fix the pre-existing eslint config resolution gap; `@promptvox/core` build and `eslint` clean.
+- Consolidated history: `main` fast-forwarded to include specs 01–05; work now happens directly on `main` (no feature branches).
